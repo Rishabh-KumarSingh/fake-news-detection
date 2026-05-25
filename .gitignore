@@ -1,0 +1,7 @@
+data/WELFake_Dataset.csv
+models/best_model.pkl
+models/model_metrics.pkl
+outputs/
+__pycache__/
+*.pyc
+.vscode/
