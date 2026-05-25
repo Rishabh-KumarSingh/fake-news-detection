@@ -1,19 +1,15 @@
 # 🔍 Fake News Detection
 
-
-
 ## 📌 Project Overview
-A complete end-to-end machine learning pipeline that identifies and classifies fake news articles using Natural Language Processing (NLP) and multiple ML algorithms.
+A complete end-to-end machine learning pipeline that identifies and classifies fake news articles using Natural Language Processing (NLP) and multiple ML algorithms, trained on 72,134 real news articles.
 
-
+---
 
 ## 🗂️ Project Structure
 
 fake_news_detection/
 ├── data/
-│   ├── generate_data.py        # Dataset generator (replace with real dataset)
-│   ├── news_dataset.csv        # Generated/training dataset
-|   └── WELFake_Dataset.csv
+│   └── WELFake_Dataset.csv     # Real dataset (72,134 articles)
 ├── src/
 │   ├── train_model.py          # Full training pipeline
 │   └── create_report.py        # Combines all plots into one report
@@ -35,17 +31,20 @@ fake_news_detection/
 
 
 
+---
+
 ## ⚙️ Tech Stack
-| Component        | Technology                          |
-|-----------------|-------------------------------------|
-| Language         | Python 3.12                         |
-| NLP Features     | TF-IDF (unigrams + bigrams)         |
-| Models Trained   | Logistic Regression, Passive Aggressive, Naive Bayes, Random Forest, Gradient Boosting |
-| Best Model       | Logistic Regression                 |
-| Accuracy         | 100% (on actual dataset)         |
-| Demo UI          | Streamlit                           |
-| Visualization    | Matplotlib, Seaborn                 |
-| Model Saving     | Joblib                              |
+| Component      | Technology                                                                 |
+|----------------|----------------------------------------------------------------------------|
+| Language       | Python 3.12                                                                |
+| Dataset        | WELFake Dataset — 72,134 real news articles                               |
+| NLP Features   | TF-IDF (unigrams + bigrams)                                               |
+| Models Trained | Logistic Regression, Passive Aggressive, Naive Bayes, Random Forest, Gradient Boosting |
+| Best Model     | Logistic Regression                                                        |
+| Accuracy       | 96.2% on real data                                                        |
+| Demo UI        | Streamlit                                                                  |
+| Visualization  | Matplotlib, Seaborn                                                        |
+| Model Saving   | Joblib                                                                     |
 
 ---
 
@@ -56,12 +55,15 @@ fake_news_detection/
 pip install -r requirements.txt
 ```
 
-### 2. Train the model
+### 2. Download the dataset
+Download the WELFake dataset from Kaggle and place it in the `data/` folder: https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification
+
+### 3. Train the model
 ```bash
-python3 src/train_model.py
+python src/train_model.py
 ```
 
-### 3. Launch the demo app
+### 4. Launch the demo app
 ```bash
 streamlit run app.py
 ```
@@ -69,11 +71,11 @@ streamlit run app.py
 ---
 
 ## 📊 Models Evaluated
-- ✅ Logistic Regression
-- ✅ Passive Aggressive Classifier
-- ✅ Naive Bayes (Multinomial)
-- ✅ Random Forest
-- ✅ Gradient Boosting
+- ✅ Logistic Regression — **96.20%**
+- ✅ Passive Aggressive Classifier — 96.19%
+- ✅ Naive Bayes (Multinomial) — 86.16%
+- ✅ Random Forest — 96.02%
+- ✅ Gradient Boosting — 94.70%
 
 All evaluated with 5-fold cross-validation and ROC-AUC scoring.
 
@@ -82,18 +84,9 @@ All evaluated with 5-fold cross-validation and ROC-AUC scoring.
 ## 🔮 Future Improvements
 - Add BERT / Transformer-based models
 - URL & source credibility scoring
-- Real-time API integration
+- Real-time news API integration
 - Deploy on Hugging Face Spaces / Streamlit Cloud
 
 ---
 
-## 📦 Using Real Data (Recommended for Submission)
-Replace the synthetic dataset with the **WELFake dataset** from Kaggle:
-```
-https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification
-```
-Just update the CSV path in `train_model.py` and ensure columns `title`, `text`, `label` exist.
-
----
-
-*Built by — Rishabh Kumar Singh*
+*Built by Rishabh Kumar Singh*
